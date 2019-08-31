@@ -153,6 +153,20 @@ public class MenuSelection {
 		
 	}
 	
+	public void sortEmployees()
+	{
+		System.out.println("Sort by empno/ename/esal: ");
+		String sortChoice=sc.next();
+		
+		System.out.println("Sort by asc/desc: ");
+		String sortOrder=sc.next();
+		
+		Collections.sort(empList,new SortEmployees(sortChoice,sortOrder));
+		
+		for(EmployeesInfo e:empList)
+			System.out.println(e);
+	}
+	
 	
 																	//Main Function
 	public static void main(String[] args) {
@@ -170,13 +184,14 @@ public class MenuSelection {
 		System.out.println("5.Change salary of Employee");
 		System.out.println("6.Search Employee");
 		System.out.println("7.View Department Wise List");
-		System.out.println("8.Exit");
+		System.out.println("8.Sort Employee");
+		System.out.println("9.Exit");
 		
 		int choice=0;
 		
 		while(true)
 		{
-		System.out.println("Enter Your Choice.....");
+		System.out.println("\n Enter Your Choice.....");
 		choice=sc.nextInt();
 		
 		
@@ -214,6 +229,10 @@ public class MenuSelection {
 			break;
 			
 		case 8:
+			menuselection.sortEmployees();
+			break;
+			
+		case 9:
 			System.exit(0);
 			break;
 		
